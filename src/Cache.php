@@ -156,8 +156,8 @@ class Cache
         $this->files->makeDirectory($path, 0775, true, true);
 
         $this->files->put(
-            $this->join([$path, $file]),
-            $this->minifyHtml($response->getContent()),
+            $this->join([$path, "$file.gz"]),
+            gzipencode($this->minifyHtml($response->getContent()), 9),
             true
         );
     }
