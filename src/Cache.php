@@ -157,7 +157,7 @@ class Cache
 
         $this->files->put(
             $this->join([$path, "$file.gz"]),
-            gzipencode($this->minifyHtml($response->getContent()), 9),
+            gzencode($this->minifyHtml($response->getContent()), 9),
             true
         );
     }
